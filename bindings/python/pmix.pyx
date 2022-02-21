@@ -157,7 +157,7 @@ cdef void pyiofhandler(size_t iofhdlr_id, pmix_iof_channel_t channel,
 
     # convert payload to python byteobject
     pybytes = {}
-    if NULL != payload:
+    if NULL != payload and payload[0].size > 0:
         pybytes['bytes'] = payload[0].bytes
         pybytes['size']  = payload[0].size
 
